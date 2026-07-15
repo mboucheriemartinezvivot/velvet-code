@@ -3,39 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta
-    name="description"
-    content="Velvet Code is a curated network and directory for professionals shaping the future of fashion, luxury and technology."
-  />
+  <meta name="description" content="Velvet Code is a curated network for professionals shaping fashion, luxury and technology." />
   <title>Velvet Code — Join the Network</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --paper: #f4f1eb;
+      --paper: #f5f2ec;
       --paper-alt: #ebe7df;
-      --ink: #171717;
-      --muted: #73706a;
-      --velvet: #821729;
-      --line: rgba(23, 23, 23, 0.19);
-      --soft-line: rgba(23, 23, 23, 0.09);
+      --ink: #181818;
+      --muted: #75716b;
+      --velvet: #86182b;
+      --line: rgba(24, 24, 24, 0.18);
       --serif: "Cormorant Garamond", Georgia, serif;
       --sans: "Inter", Arial, sans-serif;
       --mono: "IBM Plex Mono", monospace;
-      --content: 1320px;
-      --reading: 760px;
-      --gutter: clamp(20px, 4.4vw, 68px);
+      --page: 1320px;
+      --form: 760px;
+      --gutter: clamp(18px, 4vw, 64px);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html {
       scroll-behavior: smooth;
@@ -45,8 +36,8 @@
     body {
       margin: 0;
       min-width: 320px;
-      color: var(--ink);
       background: var(--paper);
+      color: var(--ink);
       font-family: var(--sans);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
@@ -56,37 +47,27 @@
       content: "";
       position: fixed;
       inset: 0;
-      z-index: 100;
       pointer-events: none;
-      opacity: 0.14;
+      z-index: 99;
+      opacity: .12;
       background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.1'/%3E%3C/svg%3E");
       mix-blend-mode: multiply;
     }
 
-    img {
-      max-width: 100%;
-    }
+    img { display: block; max-width: 100%; }
 
-    button,
-    input,
-    textarea {
-      font: inherit;
-    }
-
-    a {
-      color: inherit;
-    }
+    button, input, textarea { font: inherit; }
 
     .site {
-      width: min(100%, var(--content));
+      width: min(100%, var(--page));
       margin: 0 auto;
-      border-inline: 1px solid var(--soft-line);
+      border-inline: 1px solid rgba(24,24,24,.08);
     }
 
     .header {
-      min-height: 78px;
-      padding: 22px var(--gutter);
+      min-height: 72px;
+      padding: 20px var(--gutter);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -98,30 +79,30 @@
       margin: 0;
       color: var(--velvet);
       font-family: var(--serif);
-      font-size: clamp(35px, 4vw, 50px);
+      font-size: clamp(34px, 3.5vw, 48px);
       font-weight: 500;
-      line-height: 0.8;
-      letter-spacing: -0.055em;
+      letter-spacing: -.055em;
+      line-height: .8;
     }
 
-    .header-meta,
-    .micro,
+    .meta,
     .eyebrow,
     .field label,
-    .member-role {
+    .member-role,
+    .member-index {
       font-family: var(--mono);
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: .08em;
     }
 
-    .header-meta {
+    .meta {
       font-size: 9px;
-      line-height: 1.45;
+      line-height: 1.4;
       text-align: right;
     }
 
     .hero {
-      padding: clamp(58px, 9vw, 132px) var(--gutter) clamp(70px, 10vw, 148px);
+      padding: clamp(44px, 6vw, 82px) var(--gutter) clamp(52px, 7vw, 92px);
       border-bottom: 1px solid var(--line);
     }
 
@@ -131,78 +112,76 @@
     }
 
     .eyebrow {
-      display: block;
-      color: var(--ink);
-      font-size: clamp(10px, 1vw, 12px);
+      font-size: 10px;
     }
 
     .hero-title {
-      max-width: 100%;
-      margin: clamp(28px, 4vw, 48px) 0 0;
+      margin: clamp(22px, 3vw, 36px) 0 0;
       color: var(--velvet);
       font-family: var(--serif);
-      font-size: clamp(68px, 12vw, 174px);
+      font-size: clamp(64px, 10vw, 142px);
       font-weight: 400;
-      line-height: 0.76;
-      letter-spacing: -0.055em;
-      overflow-wrap: anywhere;
+      letter-spacing: -.055em;
+      line-height: .76;
+    }
+
+    .hero-title span { display: block; }
+    .hero-title span:last-child { font-size: .86em; }
+
+    .hero-bottom {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) minmax(230px,.42fr);
+      gap: clamp(28px, 6vw, 72px);
+      align-items: end;
+      margin-top: clamp(34px, 5vw, 62px);
     }
 
     .hero-copy {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.5fr);
-      gap: clamp(32px, 8vw, 110px);
-      align-items: end;
-      margin-top: clamp(44px, 7vw, 90px);
-    }
-
-    .hero-copy p {
-      max-width: 650px;
       margin: 0;
+      max-width: 640px;
       color: var(--muted);
-      font-size: clamp(19px, 2vw, 29px);
-      line-height: 1.23;
+      font-size: clamp(17px, 1.8vw, 25px);
+      line-height: 1.3;
     }
 
     .founding {
-      padding-top: 10px;
+      padding-top: 12px;
       border-top: 1px solid var(--ink);
     }
 
     .founding strong {
       display: block;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
       color: var(--velvet);
       font-family: var(--serif);
-      font-size: 52px;
+      font-size: clamp(38px, 4vw, 54px);
       font-weight: 400;
       line-height: 1;
     }
 
     .founding span {
-      display: block;
       font-family: var(--mono);
-      font-size: 10px;
-      line-height: 1.55;
+      font-size: 9px;
+      line-height: 1.5;
       text-transform: uppercase;
     }
 
     .apply {
-      padding: clamp(70px, 10vw, 140px) var(--gutter);
+      padding: clamp(54px, 7vw, 92px) var(--gutter);
       border-bottom: 1px solid var(--line);
     }
 
     .apply-inner {
-      width: min(100%, var(--reading));
+      width: min(100%, var(--form));
       margin: 0 auto;
     }
 
     .apply-head {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 28px;
-      align-items: end;
-      padding-bottom: 28px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: flex-end;
+      padding-bottom: 22px;
       border-bottom: 1px solid var(--line);
     }
 
@@ -210,32 +189,32 @@
       margin: 0;
       color: var(--velvet);
       font-family: var(--serif);
-      font-size: clamp(68px, 9vw, 118px);
+      font-size: clamp(58px, 7vw, 96px);
       font-weight: 400;
-      line-height: 0.78;
-      letter-spacing: -0.05em;
+      line-height: .78;
+      letter-spacing: -.05em;
     }
 
     .apply-meta {
       font-family: var(--mono);
       font-size: 9px;
-      line-height: 1.55;
+      line-height: 1.45;
       text-align: right;
       text-transform: uppercase;
     }
 
     form {
-      margin-top: clamp(45px, 6vw, 72px);
+      margin-top: clamp(34px, 4vw, 52px);
     }
 
     .field {
-      margin-bottom: 34px;
+      margin-bottom: 26px;
     }
 
     .field label {
       display: block;
-      margin-bottom: 12px;
-      font-size: 10px;
+      margin-bottom: 8px;
+      font-size: 9px;
       font-weight: 500;
     }
 
@@ -243,21 +222,21 @@
     .field textarea {
       width: 100%;
       min-width: 0;
-      padding: 2px 0 13px;
-      color: var(--ink);
-      background: transparent;
+      padding: 4px 0 10px;
       border: 0;
-      border-bottom: 1px solid #77736c;
+      border-bottom: 1px solid #79756f;
       border-radius: 0;
       outline: none;
+      background: transparent;
+      color: var(--ink);
       font-family: var(--serif);
-      font-size: clamp(22px, 2.5vw, 31px);
+      font-size: clamp(21px, 2.3vw, 29px);
       line-height: 1.15;
       appearance: none;
     }
 
     .field textarea {
-      min-height: 100px;
+      min-height: 78px;
       resize: vertical;
     }
 
@@ -276,111 +255,106 @@
       display: flex;
       justify-content: space-between;
       gap: 16px;
-      margin-top: 7px;
+      margin-top: 6px;
     }
 
     .error {
-      min-height: 16px;
+      min-height: 14px;
       margin: 0;
       color: var(--velvet);
-      font-size: 11px;
-      line-height: 1.4;
+      font-size: 10px;
+      line-height: 1.35;
     }
 
     .counter {
       flex: none;
-      color: #89857e;
+      color: #8b877f;
       font-family: var(--mono);
       font-size: 9px;
     }
 
     .submit {
       width: 100%;
-      margin-top: 12px;
-      padding: 18px 20px;
+      margin-top: 8px;
+      padding: 16px 18px;
       border: 1px solid var(--velvet);
-      color: var(--paper);
       background: var(--velvet);
+      color: var(--paper);
       cursor: pointer;
       font-family: var(--mono);
       font-size: 10px;
+      letter-spacing: .14em;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      transition: color 180ms ease, background 180ms ease;
+      transition: .18s ease;
     }
 
     .submit:hover:not(:disabled),
     .submit:focus-visible:not(:disabled) {
-      color: var(--velvet);
       background: transparent;
+      color: var(--velvet);
     }
 
-    .submit:disabled {
-      cursor: wait;
-      opacity: 0.62;
-    }
+    .submit:disabled { opacity: .62; cursor: wait; }
 
     .status {
       display: none;
-      margin-top: 22px;
-      padding: 18px 0;
+      margin-top: 20px;
+      padding: 16px 0;
       border-block: 1px solid var(--line);
     }
 
-    .status.show {
-      display: block;
-    }
+    .status.show { display: block; }
 
     .status h3 {
-      margin: 0 0 7px;
+      margin: 0 0 6px;
       color: var(--velvet);
       font-family: var(--serif);
-      font-size: 32px;
+      font-size: 30px;
       font-weight: 400;
     }
 
     .status p {
       margin: 0;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12px;
       line-height: 1.5;
     }
 
     .directory {
-      padding: clamp(74px, 10vw, 144px) var(--gutter);
+      padding: clamp(58px, 8vw, 104px) var(--gutter);
     }
 
     .directory-head {
-      width: min(100%, 1100px);
-      margin: 0 auto clamp(52px, 8vw, 92px);
+      width: min(100%, 1040px);
+      margin: 0 auto clamp(40px, 6vw, 66px);
     }
 
     .directory-title {
-      max-width: 100%;
-      margin: 24px 0 0;
+      margin: 20px 0 0;
       color: var(--velvet);
       font-family: var(--serif);
-      font-size: clamp(68px, 11.5vw, 156px);
+      font-size: clamp(62px, 9vw, 126px);
       font-weight: 400;
-      line-height: 0.76;
-      letter-spacing: -0.055em;
-      overflow-wrap: anywhere;
+      line-height: .78;
+      letter-spacing: -.055em;
     }
 
-    .directory-description {
-      max-width: 570px;
-      margin: clamp(34px, 5vw, 62px) 0 0 auto;
+    .directory-title span { display: block; }
+
+    .directory-copy {
+      max-width: 560px;
+      margin: 28px 0 0 auto;
       color: var(--muted);
-      font-size: clamp(16px, 1.5vw, 21px);
-      line-height: 1.5;
+      font-size: clamp(15px, 1.5vw, 20px);
+      line-height: 1.45;
     }
 
     .members {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1px;
-      border: 1px solid var(--line);
       background: var(--line);
+      border: 1px solid var(--line);
     }
 
     .member {
@@ -397,56 +371,46 @@
     .member-image img {
       width: 100%;
       height: 100%;
-      display: block;
       object-fit: cover;
-      filter: grayscale(1) contrast(0.96);
-      transition: transform 500ms ease, filter 240ms ease;
-    }
-
-    .member:hover img {
-      transform: scale(1.015);
-      filter: grayscale(0.15) contrast(0.96);
+      filter: grayscale(1) contrast(.96);
     }
 
     .member-info {
-      min-height: 235px;
-      padding: 24px 22px 30px;
+      padding: 20px 20px 24px;
     }
 
     .member-index {
       color: var(--velvet);
-      font-family: var(--mono);
-      font-size: 9px;
+      font-size: 8px;
     }
 
     .member-name {
-      margin: 20px 0 5px;
+      margin: 14px 0 4px;
       font-family: var(--serif);
-      font-size: clamp(34px, 3.1vw, 48px);
+      font-size: clamp(31px, 3vw, 43px);
       font-weight: 400;
-      line-height: 0.86;
-      letter-spacing: -0.04em;
+      line-height: .88;
+      letter-spacing: -.04em;
     }
 
     .member-role {
-      display: block;
       color: var(--muted);
       font-size: 8px;
-      line-height: 1.45;
+      line-height: 1.4;
     }
 
     .member-bio {
-      margin: 22px 0 0;
-      color: #64615c;
-      font-size: 13px;
-      line-height: 1.55;
+      margin: 16px 0 0;
+      color: #66625d;
+      font-size: 12px;
+      line-height: 1.5;
     }
 
     .directory-note {
+      margin-top: 24px;
       display: flex;
       justify-content: space-between;
-      gap: 28px;
-      margin-top: 30px;
+      gap: 24px;
       color: var(--muted);
       font-family: var(--mono);
       font-size: 9px;
@@ -455,12 +419,12 @@
     }
 
     .footer {
-      min-height: 110px;
-      padding: 32px var(--gutter);
+      min-height: 94px;
+      padding: 28px var(--gutter);
       display: flex;
-      justify-content: space-between;
       align-items: flex-end;
-      gap: 20px;
+      justify-content: space-between;
+      gap: 18px;
       border-top: 1px solid var(--line);
       color: var(--muted);
       font-family: var(--mono);
@@ -468,8 +432,8 @@
       text-transform: uppercase;
     }
 
-    @media (max-width: 880px) {
-      .hero-copy {
+    @media (max-width: 900px) {
+      .hero-bottom {
         grid-template-columns: 1fr;
       }
 
@@ -478,111 +442,122 @@
       }
 
       .members {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0,1fr));
       }
     }
 
-    @media (max-width: 600px) {
-      :root {
-        --gutter: 22px;
-      }
+    @media (max-width: 640px) {
+      :root { --gutter: 20px; }
 
-      .site {
-        border-inline: 0;
-      }
+      .site { border-inline: 0; }
 
       .header {
-        min-height: 72px;
+        min-height: 68px;
+        padding-top: max(18px, env(safe-area-inset-top));
       }
 
-      .header-meta {
-        display: none;
-      }
+      .meta { display: none; }
 
       .hero {
-        padding-top: 56px;
-        padding-bottom: 74px;
+        padding-top: 42px;
+        padding-bottom: 50px;
       }
 
       .hero-title {
-        font-size: clamp(60px, 21vw, 88px);
-        line-height: 0.78;
-        letter-spacing: -0.05em;
+        font-size: clamp(54px, 15.5vw, 72px);
+        line-height: .8;
+      }
+
+      .hero-title span:last-child {
+        font-size: .82em;
+      }
+
+      .hero-bottom {
+        margin-top: 28px;
+        gap: 34px;
       }
 
       .hero-copy {
-        margin-top: 42px;
-        gap: 58px;
-      }
-
-      .hero-copy p {
-        font-size: 18px;
+        font-size: 17px;
       }
 
       .founding strong {
-        font-size: 42px;
+        font-size: 38px;
       }
 
       .apply {
-        padding-top: 72px;
-        padding-bottom: 84px;
+        padding-top: 48px;
+        padding-bottom: 58px;
       }
 
       .apply-head {
-        grid-template-columns: 1fr;
-        align-items: start;
+        align-items: flex-start;
       }
 
       .apply-title {
-        font-size: 68px;
+        font-size: 58px;
       }
 
       .apply-meta {
-        text-align: left;
+        font-size: 8px;
+      }
+
+      form {
+        margin-top: 30px;
       }
 
       .field {
-        margin-bottom: 31px;
+        margin-bottom: 23px;
       }
 
       .field input,
       .field textarea {
-        font-size: 23px;
+        font-size: 22px;
       }
 
       .field textarea {
-        min-height: 112px;
+        min-height: 72px;
       }
 
       .directory {
-        padding-top: 78px;
+        padding-top: 52px;
       }
 
       .directory-title {
-        font-size: clamp(61px, 20vw, 82px);
-        line-height: 0.8;
+        font-size: clamp(52px, 14.8vw, 68px);
+        line-height: .82;
       }
 
-      .directory-description {
+      .directory-copy {
         margin-left: 0;
-        font-size: 16px;
+        font-size: 15px;
       }
 
       .members {
         grid-template-columns: 1fr;
       }
 
+      .member {
+        display: grid;
+        grid-template-columns: 42% 58%;
+      }
+
+      .member-image {
+        aspect-ratio: auto;
+        min-height: 210px;
+      }
+
       .member-info {
-        min-height: auto;
-        padding: 24px 22px 32px;
+        padding: 18px 16px 20px;
       }
 
       .member-name {
-        font-size: 42px;
+        font-size: 34px;
       }
 
       .member-bio {
-        font-size: 14px;
+        margin-top: 12px;
+        font-size: 12px;
       }
 
       .directory-note,
@@ -592,21 +567,31 @@
       }
     }
 
-    @media (max-width: 360px) {
-      :root {
-        --gutter: 17px;
-      }
+    @media (max-width: 390px) {
+      :root { --gutter: 17px; }
 
       .hero-title {
-        font-size: 56px;
+        font-size: 52px;
       }
 
-      .apply-title {
-        font-size: 60px;
+      .apply-head {
+        flex-direction: column;
+      }
+
+      .apply-meta {
+        text-align: left;
       }
 
       .directory-title {
-        font-size: 57px;
+        font-size: 50px;
+      }
+
+      .member {
+        grid-template-columns: 40% 60%;
+      }
+
+      .member-name {
+        font-size: 31px;
       }
     }
   </style>
@@ -616,19 +601,20 @@
   <main class="site">
     <header class="header">
       <h1 class="logo">velvetcode</h1>
-      <div class="header-meta">
-        Curated network<br />
-        Applications open
-      </div>
+      <div class="meta">Curated network<br />Applications open</div>
     </header>
 
     <section class="hero">
       <div class="hero-inner">
         <span class="eyebrow">00.01 / The Network</span>
-        <h2 class="hero-title">JOIN THE<br />NETWORK</h2>
 
-        <div class="hero-copy">
-          <p>
+        <h2 class="hero-title">
+          <span>JOIN THE</span>
+          <span>NETWORK</span>
+        </h2>
+
+        <div class="hero-bottom">
+          <p class="hero-copy">
             A curated network and visual directory for professionals shaping
             the future of fashion, luxury and technology.
           </p>
@@ -648,67 +634,31 @@
       <div class="apply-inner">
         <div class="apply-head">
           <h2 class="apply-title">APPLY<br />NOW</h2>
-          <div class="apply-meta">
-            Founding edition<br />
-            Approx. 2 minutes
-          </div>
+          <div class="apply-meta">Founding edition<br />Approx. 2 minutes</div>
         </div>
 
-        <form
-          id="velvet-form"
-          action="https://formspree.io/f/xgogvgel"
-          method="POST"
-          novalidate
-        >
+        <form id="velvet-form" action="https://formspree.io/f/xgogvgel" method="POST" novalidate>
           <div class="field">
             <label for="full_name">Full name *</label>
-            <input
-              id="full_name"
-              name="full_name"
-              type="text"
-              autocomplete="name"
-              required
-              placeholder="Your name"
-            />
+            <input id="full_name" name="full_name" type="text" autocomplete="name" required placeholder="Your name" />
             <p class="error" id="full_name-error" aria-live="polite"></p>
           </div>
 
           <div class="field">
             <label for="email">Email *</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              autocomplete="email"
-              required
-              placeholder="you@email.com"
-            />
+            <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@email.com" />
             <p class="error" id="email-error" aria-live="polite"></p>
           </div>
 
           <div class="field">
             <label for="linkedin">LinkedIn profile *</label>
-            <input
-              id="linkedin"
-              name="linkedin"
-              type="url"
-              inputmode="url"
-              autocomplete="url"
-              required
-              placeholder="https://linkedin.com/in/yourprofile"
-            />
+            <input id="linkedin" name="linkedin" type="url" inputmode="url" autocomplete="url" required placeholder="linkedin.com/in/yourprofile" />
             <p class="error" id="linkedin-error" aria-live="polite"></p>
           </div>
 
           <div class="field">
             <label for="mini_bio">Mini bio *</label>
-            <textarea
-              id="mini_bio"
-              name="mini_bio"
-              maxlength="300"
-              required
-              placeholder="Tell us who you are in 2–3 lines."
-            ></textarea>
+            <textarea id="mini_bio" name="mini_bio" maxlength="300" required placeholder="Tell us who you are in 2–3 lines."></textarea>
             <div class="field-footer">
               <p class="error" id="mini_bio-error" aria-live="polite"></p>
               <span class="counter" id="mini_bio-counter">0 / 300</span>
@@ -717,22 +667,14 @@
 
           <div class="field">
             <label for="technology_interest">Technology interest *</label>
-            <textarea
-              id="technology_interest"
-              name="technology_interest"
-              maxlength="200"
-              required
-              placeholder="What in technology or AI has caught your attention lately?"
-            ></textarea>
+            <textarea id="technology_interest" name="technology_interest" maxlength="200" required placeholder="What in technology or AI has caught your attention lately?"></textarea>
             <div class="field-footer">
               <p class="error" id="technology_interest-error" aria-live="polite"></p>
               <span class="counter" id="technology_interest-counter">0 / 200</span>
             </div>
           </div>
 
-          <button class="submit" id="submit-button" type="submit">
-            Apply to Velvet Code
-          </button>
+          <button class="submit" id="submit-button" type="submit">Apply to Velvet Code</button>
 
           <div class="status" id="success-message" role="status">
             <h3>Application received.</h3>
@@ -750,8 +692,13 @@
     <section class="directory">
       <div class="directory-head">
         <span class="eyebrow">01 / Inside the Network</span>
-        <h2 class="directory-title">THE<br />DIRECTORY</h2>
-        <p class="directory-description">
+
+        <h2 class="directory-title">
+          <span>THE</span>
+          <span>DIRECTORY</span>
+        </h2>
+
+        <p class="directory-copy">
           Hybrid professionals working across product, fashion, creativity,
           luxury and emerging technology.
         </p>
@@ -766,10 +713,7 @@
             <span class="member-index">001</span>
             <h3 class="member-name">Clara<br />Martin</h3>
             <span class="member-role">Digital Product / Luxury</span>
-            <p class="member-bio">
-              Product strategist connecting brand vision, customer experience
-              and emerging digital behaviours.
-            </p>
+            <p class="member-bio">Product strategist connecting brand vision, customer experience and emerging digital behaviours.</p>
           </div>
         </article>
 
@@ -781,10 +725,7 @@
             <span class="member-index">002</span>
             <h3 class="member-name">Lucía<br />Ferrero</h3>
             <span class="member-role">Fashion Tech / Innovation</span>
-            <p class="member-bio">
-              Exploring how technology can create more intelligent, relevant
-              and human fashion experiences.
-            </p>
+            <p class="member-bio">Exploring how technology can create more intelligent, relevant and human fashion experiences.</p>
           </div>
         </article>
 
@@ -796,10 +737,7 @@
             <span class="member-index">003</span>
             <h3 class="member-name">Emma<br />Duval</h3>
             <span class="member-role">Creative AI / Brand</span>
-            <p class="member-bio">
-              Creative technologist working where visual culture, artificial
-              intelligence and brand systems meet.
-            </p>
+            <p class="member-bio">Creative technologist working where visual culture, artificial intelligence and brand systems meet.</p>
           </div>
         </article>
 
@@ -811,40 +749,7 @@
             <span class="member-index">004</span>
             <h3 class="member-name">Sofía<br />Alonso</h3>
             <span class="member-role">Experience / Retail</span>
-            <p class="member-bio">
-              Experience designer building bridges between physical retail,
-              digital products and community.
-            </p>
-          </div>
-        </article>
-
-        <article class="member">
-          <div class="member-image">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=85" alt="Portrait of Inés Vidal" />
-          </div>
-          <div class="member-info">
-            <span class="member-index">005</span>
-            <h3 class="member-name">Inés<br />Vidal</h3>
-            <span class="member-role">Data / Consumer Insight</span>
-            <p class="member-bio">
-              Translating data and consumer signals into clearer decisions for
-              fashion and lifestyle businesses.
-            </p>
-          </div>
-        </article>
-
-        <article class="member">
-          <div class="member-image">
-            <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=900&q=85" alt="Portrait of Ana Rossi" />
-          </div>
-          <div class="member-info">
-            <span class="member-index">006</span>
-            <h3 class="member-name">Ana<br />Rossi</h3>
-            <span class="member-role">Strategy / New Business</span>
-            <p class="member-bio">
-              Building new propositions where culture, commerce and technology
-              meet.
-            </p>
+            <p class="member-bio">Experience designer building bridges between physical retail, digital products and community.</p>
           </div>
         </article>
       </div>
@@ -878,15 +783,12 @@
     let isSubmitting = false;
 
     function updateCounter(fieldName, max) {
-      const counter = document.getElementById(`${fieldName}-counter`);
-      counter.textContent = `${fields[fieldName].value.length} / ${max}`;
+      document.getElementById(`${fieldName}-counter`).textContent =
+        `${fields[fieldName].value.length} / ${max}`;
     }
 
     fields.mini_bio.addEventListener("input", () => updateCounter("mini_bio", 300));
-    fields.technology_interest.addEventListener(
-      "input",
-      () => updateCounter("technology_interest", 200)
-    );
+    fields.technology_interest.addEventListener("input", () => updateCounter("technology_interest", 200));
 
     function setError(fieldName, message) {
       document.getElementById(`${fieldName}-error`).textContent = message;
@@ -895,12 +797,10 @@
 
     function isValidLinkedIn(value) {
       try {
-        const url = new URL(value);
+        const normalized = value.startsWith("http") ? value : `https://${value}`;
+        const url = new URL(normalized);
         const host = url.hostname.replace(/^www\./, "").toLowerCase();
-        return (
-          ["http:", "https:"].includes(url.protocol) &&
-          (host === "linkedin.com" || host.endsWith(".linkedin.com"))
-        );
+        return host === "linkedin.com" || host.endsWith(".linkedin.com");
       } catch {
         return false;
       }
@@ -908,7 +808,7 @@
 
     function validateForm() {
       let valid = true;
-      Object.keys(fields).forEach((fieldName) => setError(fieldName, ""));
+      Object.keys(fields).forEach(name => setError(name, ""));
 
       if (!fields.full_name.value.trim()) {
         setError("full_name", "Please enter your full name.");
@@ -927,7 +827,7 @@
         setError("linkedin", "Please add your LinkedIn profile.");
         valid = false;
       } else if (!isValidLinkedIn(fields.linkedin.value.trim())) {
-        setError("linkedin", "Please enter a valid LinkedIn URL.");
+        setError("linkedin", "Please enter a valid LinkedIn profile.");
         valid = false;
       }
 
@@ -955,9 +855,14 @@
       errorMessage.classList.remove("show");
 
       try {
+        const formData = new FormData(form);
+        if (formData.get("linkedin") && !String(formData.get("linkedin")).startsWith("http")) {
+          formData.set("linkedin", `https://${formData.get("linkedin")}`);
+        }
+
         const response = await fetch(form.action, {
           method: "POST",
-          body: new FormData(form),
+          body: formData,
           headers: { Accept: "application/json" }
         });
 
