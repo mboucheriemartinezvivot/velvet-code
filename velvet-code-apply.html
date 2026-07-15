@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join Velvet Code</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF9F6;
+    --ink:#1C1B19;
+    --ink-soft:#6B655C;
+    --border:#E4E0D8;
+    --border-strong:#C9C3B6;
+    --accent:#4A1942;
+    --accent-soft:rgba(74,25,66,0.06);
+    --error:#A13B2E;
+    --error-bg:rgba(161,59,46,0.06);
+    --success:#3F5B44;
+    --radius:6px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{
+    max-width:600px;
+    margin:0 auto;
+    padding:72px 24px 96px;
+  }
+
+  /* HEADER */
+  .kicker{
+    font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);
+    display:flex;align-items:center;gap:10px;margin-bottom:20px;
+  }
+  .kicker::before{content:'';width:20px;height:1px;background:var(--border-strong);display:inline-block;}
+  h1{
+    font-family:'Newsreader', serif;font-style:italic;font-weight:500;
+    font-size:clamp(32px,5vw,42px);line-height:1.15;margin:0 0 18px;letter-spacing:-.01em;color:var(--ink);
+  }
+  .intro{
+    font-size:16px;line-height:1.65;color:var(--ink-soft);max-width:50ch;margin:0 0 48px;
+  }
+  hr.rule{border:none;border-top:1px solid var(--border);margin:0 0 40px;}
+
+  /* FORM */
+  form{display:flex;flex-direction:column;gap:28px;}
+  .field{display:flex;flex-direction:column;gap:8px;position:relative;}
+  label{
+    font-size:13px;font-weight:500;color:var(--ink);
+  }
+  .field-hint{font-size:13px;color:var(--ink-soft);margin-top:-4px;line-height:1.5;}
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  textarea{
+    font-family:'Inter',sans-serif;font-size:15px;color:var(--ink);
+    background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+    padding:13px 15px;width:100%;transition:border-color .15s ease;
+  }
+  textarea{resize:vertical;min-height:88px;line-height:1.5;}
+  input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);}
+  input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--error);}
+  input[aria-invalid="true"]:focus,textarea[aria-invalid="true"]:focus{box-shadow:0 0 0 3px var(--error-bg);}
+
+  .counter{
+    font-size:12px;color:var(--ink-soft);text-align:right;margin-top:-2px;
+  }
+  .counter.over{color:var(--error);}
+
+  .error-msg{
+    font-size:13px;color:var(--error);display:none;
+  }
+  .error-msg.show{display:block;}
+
+  /* SUBMIT */
+  .submit-row{margin-top:8px;}
+  button[type="submit"]{
+    font-family:'Inter',sans-serif;font-size:15px;font-weight:500;
+    background:var(--ink);color:#fff;border:none;border-radius:var(--radius);
+    padding:15px 28px;width:100%;cursor:pointer;transition:background .15s ease, opacity .15s ease;
+  }
+  button[type="submit"]:hover:not(:disabled){background:var(--accent);}
+  button[type="submit"]:disabled{opacity:.6;cursor:not-allowed;}
+
+  /* STATUS */
+  .status{
+    margin-top:24px;padding:18px 20px;border-radius:var(--radius);font-size:14.5px;line-height:1.55;display:none;
+  }
+  .status.ok{display:block;background:rgba(63,91,68,0.07);color:var(--success);border:1px solid rgba(63,91,68,0.2);}
+  .status.err{display:block;background:var(--error-bg);color:var(--error);border:1px solid rgba(161,59,46,0.2);}
+  .status strong{display:block;font-size:15px;margin-bottom:4px;}
+
+  form.hidden{display:none;}
+
+  @media (max-width:480px){
+    .page{padding:48px 20px 72px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="kicker">Founding cohort · 25 members</div>
+  <h1>Join Velvet Code</h1>
+  <p class="intro">We're building our founding community. Tell us a little about you and apply to become one of the first 25 members.</p>
+  <hr class="rule">
+
+  <form id="applyForm" novalidate>
+    <div class="field">
+      <label for="full_name">Full name</label>
+      <input type="text" id="full_name" name="full_name" required aria-describedby="err_full_name">
+      <span class="error-msg" id="err_full_name">Please enter your full name.</span>
+    </div>
+
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required aria-describedby="err_email">
+      <span class="error-msg" id="err_email">Please enter a valid email address.</span>
+    </div>
+
+    <div class="field">
+      <label for="linkedin">LinkedIn profile</label>
+      <input type="url" id="linkedin" name="linkedin" required placeholder="https://linkedin.com/in/yourprofile" aria-describedby="err_linkedin">
+      <span class="error-msg" id="err_linkedin">Please enter a valid LinkedIn URL.</span>
+    </div>
+
+    <div class="field">
+      <label for="mini_bio">Mini bio</label>
+      <span class="field-hint">Tell us who you are in 2–3 lines.</span>
+      <textarea id="mini_bio" name="mini_bio" maxlength="300" required aria-describedby="err_mini_bio counter_mini_bio"></textarea>
+      <div class="counter" id="counter_mini_bio">0 / 300</div>
+      <span class="error-msg" id="err_mini_bio">Please share a short bio.</span>
+    </div>
+
+    <div class="field">
+      <label for="technology_interest">Technology interest</label>
+      <span class="field-hint">What's something in technology or AI that has caught your attention lately?</span>
+      <textarea id="technology_interest" name="technology_interest" maxlength="200" required aria-describedby="err_technology_interest counter_tech"></textarea>
+      <div class="counter" id="counter_tech">0 / 200</div>
+      <span class="error-msg" id="err_technology_interest">Please share what's caught your attention.</span>
+    </div>
+
+    <div class="submit-row">
+      <button type="submit" id="submitBtn">Apply to Velvet Code</button>
+    </div>
+
+    <div class="status" id="statusBox" role="status" aria-live="polite"></div>
+  </form>
+</div>
+
+<script>
+(function(){
+  const FORM_ENDPOINT = "https://formspree.io/f/xgogvgel";
+  const form = document.getElementById('applyForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const statusBox = document.getElementById('statusBox');
+
+  const fields = {
+    full_name: document.getElementById('full_name'),
+    email: document.getElementById('email'),
+    linkedin: document.getElementById('linkedin'),
+    mini_bio: document.getElementById('mini_bio'),
+    technology_interest: document.getElementById('technology_interest')
+  };
+
+  // Character counters
+  function bindCounter(input, counterEl, max){
+    input.addEventListener('input', () => {
+      const len = input.value.length;
+      counterEl.textContent = len + ' / ' + max;
+      counterEl.classList.toggle('over', len > max);
+    });
+  }
+  bindCounter(fields.mini_bio, document.getElementById('counter_mini_bio'), 300);
+  bindCounter(fields.technology_interest, document.getElementById('counter_tech'), 200);
+
+  // Validation helpers
+  function setError(name, show){
+    const input = fields[name];
+    const errEl = document.getElementById('err_' + name);
+    if(show){
+      input.setAttribute('aria-invalid','true');
+      errEl.classList.add('show');
+    } else {
+      input.removeAttribute('aria-invalid');
+      errEl.classList.remove('show');
+    }
+  }
+  function clearError(name){ setError(name, false); }
+
+  function isValidEmail(v){
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  }
+  function isValidUrl(v){
+    try{
+      const u = new URL(v);
+      return (u.protocol === 'http:' || u.protocol === 'https:');
+    } catch(e){ return false; }
+  }
+
+  function validate(){
+    let valid = true;
+
+    if(!fields.full_name.value.trim()){ setError('full_name', true); valid = false; } else clearError('full_name');
+
+    if(!fields.email.value.trim() || !isValidEmail(fields.email.value.trim())){ setError('email', true); valid = false; } else clearError('email');
+
+    if(!fields.linkedin.value.trim() || !isValidUrl(fields.linkedin.value.trim())){ setError('linkedin', true); valid = false; } else clearError('linkedin');
+
+    const bio = fields.mini_bio.value.trim();
+    if(!bio || bio.length > 300){ setError('mini_bio', true); valid = false; } else clearError('mini_bio');
+
+    const tech = fields.technology_interest.value.trim();
+    if(!tech || tech.length > 200){ setError('technology_interest', true); valid = false; } else clearError('technology_interest');
+
+    return valid;
+  }
+
+  // Live-clear errors as user fixes fields
+  fields.full_name.addEventListener('input', () => clearError('full_name'));
+  fields.email.addEventListener('input', () => clearError('email'));
+  fields.linkedin.addEventListener('input', () => clearError('linkedin'));
+  fields.mini_bio.addEventListener('input', () => { if(fields.mini_bio.value.trim().length <= 300) clearError('mini_bio'); });
+  fields.technology_interest.addEventListener('input', () => { if(fields.technology_interest.value.trim().length <= 200) clearError('technology_interest'); });
+
+  let isSubmitting = false;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if(isSubmitting) return;
+
+    statusBox.className = 'status';
+    statusBox.textContent = '';
+
+    if(!validate()){
+      return;
+    }
+
+    isSubmitting = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try{
+      const formData = new FormData(form);
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if(res.ok){
+        statusBox.className = 'status ok';
+        statusBox.innerHTML = '<strong>Application received.</strong>Thank you for applying to Velvet Code. We\'ll be in touch soon.';
+        form.classList.add('hidden');
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch(err){
+      statusBox.className = 'status err';
+      statusBox.textContent = 'Something went wrong. Please check your information and try again.';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Apply to Velvet Code';
+      isSubmitting = false;
+      return;
+    }
+
+    isSubmitting = false;
+  });
+})();
+</script>
+
+</body>
+</html>
