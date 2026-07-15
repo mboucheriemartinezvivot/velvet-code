@@ -2,32 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta
     name="description"
-    content="Apply to join Velvet Code, a curated network for professionals shaping the future of fashion, luxury and technology."
+    content="Velvet Code is a curated network and directory for professionals shaping the future of fashion, luxury and technology."
   />
   <title>Velvet Code — Join the Network</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
     rel="stylesheet"
   />
 
   <style>
     :root {
-      --paper: #f3f1ec;
-      --paper-2: #ebe8e1;
+      --paper: #f4f1eb;
+      --paper-alt: #ebe7df;
       --ink: #171717;
-      --muted: #74716c;
-      --velvet: #7d1727;
-      --line: rgba(23, 23, 23, 0.22);
-      --soft-line: rgba(23, 23, 23, 0.10);
+      --muted: #73706a;
+      --velvet: #821729;
+      --line: rgba(23, 23, 23, 0.19);
+      --soft-line: rgba(23, 23, 23, 0.09);
       --serif: "Cormorant Garamond", Georgia, serif;
       --sans: "Inter", Arial, sans-serif;
-      --max: 1480px;
+      --mono: "IBM Plex Mono", monospace;
+      --content: 1320px;
+      --reading: 760px;
+      --gutter: clamp(20px, 4.4vw, 68px);
     }
 
     * {
@@ -36,26 +39,33 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     body {
       margin: 0;
+      min-width: 320px;
       color: var(--ink);
       background: var(--paper);
       font-family: var(--sans);
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
     body::before {
       content: "";
       position: fixed;
       inset: 0;
-      z-index: 50;
+      z-index: 100;
       pointer-events: none;
-      opacity: 0.18;
+      opacity: 0.14;
       background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.12'/%3E%3C/svg%3E");
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
       mix-blend-mode: multiply;
+    }
+
+    img {
+      max-width: 100%;
     }
 
     button,
@@ -64,16 +74,19 @@
       font: inherit;
     }
 
-    .page {
-      max-width: var(--max);
-      margin: 0 auto;
-      border-left: 1px solid var(--soft-line);
-      border-right: 1px solid var(--soft-line);
+    a {
+      color: inherit;
     }
 
-    .topbar {
-      min-height: 82px;
-      padding: 24px clamp(20px, 4vw, 64px);
+    .site {
+      width: min(100%, var(--content));
+      margin: 0 auto;
+      border-inline: 1px solid var(--soft-line);
+    }
+
+    .header {
+      min-height: 78px;
+      padding: 22px var(--gutter);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -85,147 +98,167 @@
       margin: 0;
       color: var(--velvet);
       font-family: var(--serif);
-      font-size: clamp(34px, 4vw, 50px);
+      font-size: clamp(35px, 4vw, 50px);
       font-weight: 500;
-      letter-spacing: -0.055em;
       line-height: 0.8;
+      letter-spacing: -0.055em;
     }
 
-    .top-meta {
-      font-family: monospace;
-      font-size: 9px;
+    .header-meta,
+    .micro,
+    .eyebrow,
+    .field label,
+    .member-role {
+      font-family: var(--mono);
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
+    }
+
+    .header-meta {
+      font-size: 9px;
+      line-height: 1.45;
       text-align: right;
     }
 
     .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
-      min-height: calc(100vh - 82px);
+      padding: clamp(58px, 9vw, 132px) var(--gutter) clamp(70px, 10vw, 148px);
       border-bottom: 1px solid var(--line);
     }
 
-    .hero-copy {
-      padding: clamp(44px, 6vw, 88px) clamp(22px, 5vw, 74px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border-right: 1px solid var(--line);
+    .hero-inner {
+      width: min(100%, 1040px);
+      margin: 0 auto;
     }
 
-    .kicker,
-    .section-kicker,
-    .form-label,
-    .member-role {
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .kicker {
-      font-family: monospace;
-      font-size: 10px;
+    .eyebrow {
+      display: block;
+      color: var(--ink);
+      font-size: clamp(10px, 1vw, 12px);
     }
 
     .hero-title {
-      margin: 28px 0 0;
+      max-width: 100%;
+      margin: clamp(28px, 4vw, 48px) 0 0;
       color: var(--velvet);
       font-family: var(--serif);
-      font-size: clamp(78px, 9.4vw, 146px);
+      font-size: clamp(68px, 12vw, 174px);
       font-weight: 400;
-      line-height: 0.74;
+      line-height: 0.76;
       letter-spacing: -0.055em;
+      overflow-wrap: anywhere;
+    }
+
+    .hero-copy {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.5fr);
+      gap: clamp(32px, 8vw, 110px);
+      align-items: end;
+      margin-top: clamp(44px, 7vw, 90px);
     }
 
     .hero-copy p {
-      max-width: 500px;
-      margin: 38px 0 0;
+      max-width: 650px;
+      margin: 0;
       color: var(--muted);
-      font-size: clamp(17px, 1.65vw, 24px);
-      line-height: 1.25;
+      font-size: clamp(19px, 2vw, 29px);
+      line-height: 1.23;
     }
 
-    .network-note {
-      display: grid;
-      grid-template-columns: 78px 1fr;
-      gap: 18px;
-      margin-top: 70px;
-      font-family: monospace;
-      font-size: 9px;
-      line-height: 1.5;
+    .founding {
+      padding-top: 10px;
+      border-top: 1px solid var(--ink);
+    }
+
+    .founding strong {
+      display: block;
+      margin-bottom: 18px;
+      color: var(--velvet);
+      font-family: var(--serif);
+      font-size: 52px;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .founding span {
+      display: block;
+      font-family: var(--mono);
+      font-size: 10px;
+      line-height: 1.55;
       text-transform: uppercase;
     }
 
-    .network-note strong {
-      color: var(--velvet);
-      font-size: 12px;
-      letter-spacing: 0.08em;
+    .apply {
+      padding: clamp(70px, 10vw, 140px) var(--gutter);
+      border-bottom: 1px solid var(--line);
     }
 
-    .hero-form {
-      padding: clamp(42px, 5vw, 74px) clamp(22px, 5vw, 78px);
-      background: rgba(255, 255, 255, 0.16);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .apply-inner {
+      width: min(100%, var(--reading));
+      margin: 0 auto;
     }
 
-    .form-heading {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      align-items: flex-start;
-      margin-bottom: 38px;
+    .apply-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line);
     }
 
-    .form-heading h2 {
+    .apply-title {
       margin: 0;
       color: var(--velvet);
       font-family: var(--serif);
-      font-size: clamp(48px, 5.5vw, 82px);
+      font-size: clamp(68px, 9vw, 118px);
       font-weight: 400;
-      line-height: 0.82;
-      letter-spacing: -0.045em;
+      line-height: 0.78;
+      letter-spacing: -0.05em;
     }
 
-    .form-heading span {
-      margin-top: 8px;
-      font-family: monospace;
+    .apply-meta {
+      font-family: var(--mono);
       font-size: 9px;
-      text-transform: uppercase;
+      line-height: 1.55;
       text-align: right;
-      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    form {
+      margin-top: clamp(45px, 6vw, 72px);
     }
 
     .field {
-      margin-bottom: 25px;
+      margin-bottom: 34px;
     }
 
-    .form-label {
+    .field label {
       display: block;
-      margin-bottom: 9px;
-      font-size: 9px;
-      font-weight: 600;
+      margin-bottom: 12px;
+      font-size: 10px;
+      font-weight: 500;
     }
 
     .field input,
     .field textarea {
       width: 100%;
-      padding: 2px 0 11px;
+      min-width: 0;
+      padding: 2px 0 13px;
       color: var(--ink);
       background: transparent;
       border: 0;
-      border-bottom: 1px solid #706d67;
+      border-bottom: 1px solid #77736c;
       border-radius: 0;
       outline: none;
       font-family: var(--serif);
-      font-size: 22px;
+      font-size: clamp(22px, 2.5vw, 31px);
+      line-height: 1.15;
+      appearance: none;
     }
 
     .field textarea {
-      min-height: 68px;
+      min-height: 100px;
       resize: vertical;
-      line-height: 1.15;
     }
 
     .field input:focus,
@@ -235,43 +268,45 @@
 
     .field input::placeholder,
     .field textarea::placeholder {
-      color: #aaa69f;
+      color: #aaa69e;
+      opacity: 1;
     }
 
     .field-footer {
       display: flex;
       justify-content: space-between;
-      gap: 18px;
-      margin-top: 6px;
+      gap: 16px;
+      margin-top: 7px;
     }
 
     .error {
-      min-height: 15px;
+      min-height: 16px;
       margin: 0;
       color: var(--velvet);
-      font-size: 10px;
-      line-height: 1.35;
+      font-size: 11px;
+      line-height: 1.4;
     }
 
     .counter {
       flex: none;
-      color: #8c8983;
-      font-family: monospace;
+      color: #89857e;
+      font-family: var(--mono);
       font-size: 9px;
     }
 
     .submit {
       width: 100%;
-      margin-top: 10px;
-      padding: 16px 20px;
+      margin-top: 12px;
+      padding: 18px 20px;
       border: 1px solid var(--velvet);
       color: var(--paper);
       background: var(--velvet);
       cursor: pointer;
+      font-family: var(--mono);
       font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      transition: 180ms ease;
+      transition: color 180ms ease, background 180ms ease;
     }
 
     .submit:hover:not(:disabled),
@@ -287,10 +322,9 @@
 
     .status {
       display: none;
-      margin-top: 18px;
-      padding: 15px 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+      margin-top: 22px;
+      padding: 18px 0;
+      border-block: 1px solid var(--line);
     }
 
     .status.show {
@@ -298,63 +332,55 @@
     }
 
     .status h3 {
-      margin: 0 0 5px;
+      margin: 0 0 7px;
       color: var(--velvet);
       font-family: var(--serif);
-      font-size: 29px;
+      font-size: 32px;
       font-weight: 400;
     }
 
     .status p {
       margin: 0;
       color: var(--muted);
-      font-size: 12px;
-      line-height: 1.45;
+      font-size: 13px;
+      line-height: 1.5;
     }
 
     .directory {
-      padding: clamp(58px, 7vw, 104px) clamp(20px, 4vw, 64px);
+      padding: clamp(74px, 10vw, 144px) var(--gutter);
     }
 
     .directory-head {
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
-      gap: 40px;
-      align-items: end;
-      padding-bottom: 42px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section-kicker {
-      color: var(--velvet);
-      font-family: monospace;
-      font-size: 10px;
+      width: min(100%, 1100px);
+      margin: 0 auto clamp(52px, 8vw, 92px);
     }
 
     .directory-title {
-      margin: 20px 0 0;
+      max-width: 100%;
+      margin: 24px 0 0;
       color: var(--velvet);
       font-family: var(--serif);
-      font-size: clamp(70px, 10vw, 148px);
+      font-size: clamp(68px, 11.5vw, 156px);
       font-weight: 400;
-      line-height: 0.75;
-      letter-spacing: -0.05em;
+      line-height: 0.76;
+      letter-spacing: -0.055em;
+      overflow-wrap: anywhere;
     }
 
-    .directory-intro {
-      margin: 0 0 8px;
+    .directory-description {
+      max-width: 570px;
+      margin: clamp(34px, 5vw, 62px) 0 0 auto;
       color: var(--muted);
-      font-size: 15px;
-      line-height: 1.55;
+      font-size: clamp(16px, 1.5vw, 21px);
+      line-height: 1.5;
     }
 
     .members {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1px;
-      margin-top: 1px;
-      background: var(--line);
       border: 1px solid var(--line);
+      background: var(--line);
     }
 
     .member {
@@ -363,9 +389,9 @@
     }
 
     .member-image {
-      aspect-ratio: 0.79;
+      aspect-ratio: 4 / 5;
       overflow: hidden;
-      background: var(--paper-2);
+      background: var(--paper-alt);
     }
 
     .member-image img {
@@ -373,89 +399,82 @@
       height: 100%;
       display: block;
       object-fit: cover;
-      filter: grayscale(1) contrast(0.95);
-      transition: filter 250ms ease, transform 450ms ease;
+      filter: grayscale(1) contrast(0.96);
+      transition: transform 500ms ease, filter 240ms ease;
     }
 
     .member:hover img {
-      filter: grayscale(0.2) contrast(0.95);
       transform: scale(1.015);
+      filter: grayscale(0.15) contrast(0.96);
     }
 
-    .member-copy {
-      min-height: 180px;
-      padding: 20px 18px 24px;
+    .member-info {
+      min-height: 235px;
+      padding: 24px 22px 30px;
     }
 
     .member-index {
       color: var(--velvet);
-      font-family: monospace;
+      font-family: var(--mono);
       font-size: 9px;
     }
 
-    .member h3 {
-      margin: 16px 0 4px;
+    .member-name {
+      margin: 20px 0 5px;
       font-family: var(--serif);
-      font-size: clamp(29px, 2.5vw, 42px);
+      font-size: clamp(34px, 3.1vw, 48px);
       font-weight: 400;
-      line-height: 0.88;
-      letter-spacing: -0.035em;
+      line-height: 0.86;
+      letter-spacing: -0.04em;
     }
 
     .member-role {
       display: block;
-      margin-bottom: 17px;
       color: var(--muted);
       font-size: 8px;
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
-    .member p {
-      margin: 0;
-      color: #66635f;
-      font-size: 12px;
-      line-height: 1.5;
+    .member-bio {
+      margin: 22px 0 0;
+      color: #64615c;
+      font-size: 13px;
+      line-height: 1.55;
     }
 
-    .directory-foot {
-      padding: 34px 0 0;
+    .directory-note {
       display: flex;
       justify-content: space-between;
-      gap: 30px;
+      gap: 28px;
+      margin-top: 30px;
       color: var(--muted);
-      font-family: monospace;
+      font-family: var(--mono);
       font-size: 9px;
       line-height: 1.5;
       text-transform: uppercase;
     }
 
-    footer {
+    .footer {
       min-height: 110px;
-      padding: 32px clamp(20px, 4vw, 64px);
+      padding: 32px var(--gutter);
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       gap: 20px;
       border-top: 1px solid var(--line);
       color: var(--muted);
+      font-family: var(--mono);
       font-size: 9px;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
     }
 
-    @media (max-width: 1050px) {
-      .hero {
+    @media (max-width: 880px) {
+      .hero-copy {
         grid-template-columns: 1fr;
       }
 
-      .hero-copy {
-        min-height: 660px;
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .hero-form {
-        min-height: auto;
+      .founding {
+        max-width: 320px;
       }
 
       .members {
@@ -463,96 +482,176 @@
       }
     }
 
-    @media (max-width: 720px) {
-      .top-meta {
+    @media (max-width: 600px) {
+      :root {
+        --gutter: 22px;
+      }
+
+      .site {
+        border-inline: 0;
+      }
+
+      .header {
+        min-height: 72px;
+      }
+
+      .header-meta {
         display: none;
       }
 
-      .hero-copy {
-        min-height: 570px;
+      .hero {
+        padding-top: 56px;
+        padding-bottom: 74px;
       }
 
       .hero-title {
-        font-size: clamp(74px, 24vw, 110px);
+        font-size: clamp(60px, 21vw, 88px);
+        line-height: 0.78;
+        letter-spacing: -0.05em;
       }
 
-      .network-note {
+      .hero-copy {
+        margin-top: 42px;
+        gap: 58px;
+      }
+
+      .hero-copy p {
+        font-size: 18px;
+      }
+
+      .founding strong {
+        font-size: 42px;
+      }
+
+      .apply {
+        padding-top: 72px;
+        padding-bottom: 84px;
+      }
+
+      .apply-head {
         grid-template-columns: 1fr;
-        margin-top: 56px;
+        align-items: start;
       }
 
-      .form-heading {
-        display: block;
+      .apply-title {
+        font-size: 68px;
       }
 
-      .form-heading span {
-        display: block;
-        margin-top: 18px;
+      .apply-meta {
         text-align: left;
       }
 
-      .directory-head {
-        grid-template-columns: 1fr;
+      .field {
+        margin-bottom: 31px;
+      }
+
+      .field input,
+      .field textarea {
+        font-size: 23px;
+      }
+
+      .field textarea {
+        min-height: 112px;
+      }
+
+      .directory {
+        padding-top: 78px;
       }
 
       .directory-title {
-        font-size: clamp(72px, 23vw, 112px);
+        font-size: clamp(61px, 20vw, 82px);
+        line-height: 0.8;
+      }
+
+      .directory-description {
+        margin-left: 0;
+        font-size: 16px;
       }
 
       .members {
         grid-template-columns: 1fr;
       }
 
-      .member-copy {
-        min-height: 0;
+      .member-info {
+        min-height: auto;
+        padding: 24px 22px 32px;
       }
 
-      .directory-foot,
-      footer {
+      .member-name {
+        font-size: 42px;
+      }
+
+      .member-bio {
+        font-size: 14px;
+      }
+
+      .directory-note,
+      .footer {
         flex-direction: column;
         align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 360px) {
+      :root {
+        --gutter: 17px;
+      }
+
+      .hero-title {
+        font-size: 56px;
+      }
+
+      .apply-title {
+        font-size: 60px;
+      }
+
+      .directory-title {
+        font-size: 57px;
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="page">
-    <header class="topbar">
+  <main class="site">
+    <header class="header">
       <h1 class="logo">velvetcode</h1>
-      <div class="top-meta">
-        Founding network<br />
+      <div class="header-meta">
+        Curated network<br />
         Applications open
       </div>
     </header>
 
     <section class="hero">
-      <div class="hero-copy">
-        <div>
-          <span class="kicker">00.01 / The Network</span>
-          <h2 class="hero-title">JOIN THE<br />NETWORK</h2>
-          <p>
-            A curated directory for professionals shaping the future of fashion,
-            luxury and technology.
-          </p>
-        </div>
+      <div class="hero-inner">
+        <span class="eyebrow">00.01 / The Network</span>
+        <h2 class="hero-title">JOIN THE<br />NETWORK</h2>
 
-        <div class="network-note">
-          <strong>01/25</strong>
-          <span>
-            We are selecting the first 25 founding members.<br />
-            Apply directly from this page.
-          </span>
+        <div class="hero-copy">
+          <p>
+            A curated network and visual directory for professionals shaping
+            the future of fashion, luxury and technology.
+          </p>
+
+          <div class="founding">
+            <strong>01/25</strong>
+            <span>
+              We are selecting the first 25 founding members.<br />
+              Applications are open.
+            </span>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="hero-form">
-        <div class="form-heading">
-          <h2>APPLY<br />NOW</h2>
-          <span>
+    <section class="apply">
+      <div class="apply-inner">
+        <div class="apply-head">
+          <h2 class="apply-title">APPLY<br />NOW</h2>
+          <div class="apply-meta">
             Founding edition<br />
             Approx. 2 minutes
-          </span>
+          </div>
         </div>
 
         <form
@@ -562,7 +661,7 @@
           novalidate
         >
           <div class="field">
-            <label class="form-label" for="full_name">Full name *</label>
+            <label for="full_name">Full name *</label>
             <input
               id="full_name"
               name="full_name"
@@ -575,7 +674,7 @@
           </div>
 
           <div class="field">
-            <label class="form-label" for="email">Email *</label>
+            <label for="email">Email *</label>
             <input
               id="email"
               name="email"
@@ -588,7 +687,7 @@
           </div>
 
           <div class="field">
-            <label class="form-label" for="linkedin">LinkedIn profile *</label>
+            <label for="linkedin">LinkedIn profile *</label>
             <input
               id="linkedin"
               name="linkedin"
@@ -602,7 +701,7 @@
           </div>
 
           <div class="field">
-            <label class="form-label" for="mini_bio">Mini bio *</label>
+            <label for="mini_bio">Mini bio *</label>
             <textarea
               id="mini_bio"
               name="mini_bio"
@@ -617,9 +716,7 @@
           </div>
 
           <div class="field">
-            <label class="form-label" for="technology_interest">
-              Technology interest *
-            </label>
+            <label for="technology_interest">Technology interest *</label>
             <textarea
               id="technology_interest"
               name="technology_interest"
@@ -639,9 +736,7 @@
 
           <div class="status" id="success-message" role="status">
             <h3>Application received.</h3>
-            <p>
-              Thank you for applying to Velvet Code. We’ll be in touch soon.
-            </p>
+            <p>Thank you for applying to Velvet Code. We’ll be in touch soon.</p>
           </div>
 
           <div class="status" id="error-message" role="alert">
@@ -654,29 +749,24 @@
 
     <section class="directory">
       <div class="directory-head">
-        <div>
-          <span class="section-kicker">01 / Inside the network</span>
-          <h2 class="directory-title">THE<br />DIRECTORY</h2>
-        </div>
-        <p class="directory-intro">
-          A visual directory of hybrid professionals working across product,
-          fashion, creativity, luxury and emerging technology.
+        <span class="eyebrow">01 / Inside the Network</span>
+        <h2 class="directory-title">THE<br />DIRECTORY</h2>
+        <p class="directory-description">
+          Hybrid professionals working across product, fashion, creativity,
+          luxury and emerging technology.
         </p>
       </div>
 
       <div class="members">
         <article class="member">
           <div class="member-image">
-            <img
-              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85"
-              alt="Portrait of a Velvet Code network member"
-            />
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85" alt="Portrait of Clara Martin" />
           </div>
-          <div class="member-copy">
+          <div class="member-info">
             <span class="member-index">001</span>
-            <h3>Clara<br />Martin</h3>
+            <h3 class="member-name">Clara<br />Martin</h3>
             <span class="member-role">Digital Product / Luxury</span>
-            <p>
+            <p class="member-bio">
               Product strategist connecting brand vision, customer experience
               and emerging digital behaviours.
             </p>
@@ -685,16 +775,13 @@
 
         <article class="member">
           <div class="member-image">
-            <img
-              src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85"
-              alt="Portrait of a Velvet Code network member"
-            />
+            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85" alt="Portrait of Lucía Ferrero" />
           </div>
-          <div class="member-copy">
+          <div class="member-info">
             <span class="member-index">002</span>
-            <h3>Lucía<br />Ferrero</h3>
+            <h3 class="member-name">Lucía<br />Ferrero</h3>
             <span class="member-role">Fashion Tech / Innovation</span>
-            <p>
+            <p class="member-bio">
               Exploring how technology can create more intelligent, relevant
               and human fashion experiences.
             </p>
@@ -703,35 +790,29 @@
 
         <article class="member">
           <div class="member-image">
-            <img
-              src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=900&q=85"
-              alt="Portrait of a Velvet Code network member"
-            />
+            <img src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=900&q=85" alt="Portrait of Emma Duval" />
           </div>
-          <div class="member-copy">
+          <div class="member-info">
             <span class="member-index">003</span>
-            <h3>Emma<br />Duval</h3>
+            <h3 class="member-name">Emma<br />Duval</h3>
             <span class="member-role">Creative AI / Brand</span>
-            <p>
-              Creative technologist working at the intersection of visual
-              culture, artificial intelligence and brand systems.
+            <p class="member-bio">
+              Creative technologist working where visual culture, artificial
+              intelligence and brand systems meet.
             </p>
           </div>
         </article>
 
         <article class="member">
           <div class="member-image">
-            <img
-              src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=85"
-              alt="Portrait of a Velvet Code network member"
-            />
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=85" alt="Portrait of Sofía Alonso" />
           </div>
-          <div class="member-copy">
+          <div class="member-info">
             <span class="member-index">004</span>
-            <h3>Sofía<br />Alonso</h3>
+            <h3 class="member-name">Sofía<br />Alonso</h3>
             <span class="member-role">Experience / Retail</span>
-            <p>
-              Experience designer building new bridges between physical retail,
+            <p class="member-bio">
+              Experience designer building bridges between physical retail,
               digital products and community.
             </p>
           </div>
@@ -739,16 +820,13 @@
 
         <article class="member">
           <div class="member-image">
-            <img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=85"
-              alt="Portrait of a Velvet Code network member"
-            />
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=85" alt="Portrait of Inés Vidal" />
           </div>
-          <div class="member-copy">
+          <div class="member-info">
             <span class="member-index">005</span>
-            <h3>Inés<br />Vidal</h3>
+            <h3 class="member-name">Inés<br />Vidal</h3>
             <span class="member-role">Data / Consumer Insight</span>
-            <p>
+            <p class="member-bio">
               Translating data and consumer signals into clearer decisions for
               fashion and lifestyle businesses.
             </p>
@@ -757,68 +835,29 @@
 
         <article class="member">
           <div class="member-image">
-            <img
-              src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=900&q=85"
-              alt="Portrait of a Velvet Code network member"
-            />
+            <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=900&q=85" alt="Portrait of Ana Rossi" />
           </div>
-          <div class="member-copy">
+          <div class="member-info">
             <span class="member-index">006</span>
-            <h3>Ana<br />Rossi</h3>
+            <h3 class="member-name">Ana<br />Rossi</h3>
             <span class="member-role">Strategy / New Business</span>
-            <p>
-              Building new propositions and partnerships where culture,
-              commerce and technology meet.
-            </p>
-          </div>
-        </article>
-
-        <article class="member">
-          <div class="member-image">
-            <img
-              src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=900&q=85"
-              alt="Portrait of a Velvet Code network member"
-            />
-          </div>
-          <div class="member-copy">
-            <span class="member-index">007</span>
-            <h3>Maya<br />Laurent</h3>
-            <span class="member-role">E-commerce / Product</span>
-            <p>
-              Designing digital commerce experiences with an editorial,
-              customer-first point of view.
-            </p>
-          </div>
-        </article>
-
-        <article class="member">
-          <div class="member-image">
-            <img
-              src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=85"
-              alt="Portrait of a Velvet Code network member"
-            />
-          </div>
-          <div class="member-copy">
-            <span class="member-index">008</span>
-            <h3>Julia<br />Meyer</h3>
-            <span class="member-role">Technology / Fashion</span>
-            <p>
-              Connecting multidisciplinary teams to turn emerging technologies
-              into meaningful fashion products.
+            <p class="member-bio">
+              Building new propositions where culture, commerce and technology
+              meet.
             </p>
           </div>
         </article>
       </div>
 
-      <div class="directory-foot">
-        <span>Profiles shown are visual placeholders for the first edition.</span>
-        <span>New members will be added after selection.</span>
+      <div class="directory-note">
+        <span>Profiles shown are visual placeholders.</span>
+        <span>Selected members will be added to the founding directory.</span>
       </div>
     </section>
 
-    <footer>
+    <footer class="footer">
       <span>© 2026 Velvet Code</span>
-      <span>Curated network / Fashion × Technology</span>
+      <span>Fashion × Technology</span>
     </footer>
   </main>
 
@@ -839,9 +878,8 @@
     let isSubmitting = false;
 
     function updateCounter(fieldName, max) {
-      const field = fields[fieldName];
       const counter = document.getElementById(`${fieldName}-counter`);
-      counter.textContent = `${field.value.length} / ${max}`;
+      counter.textContent = `${fields[fieldName].value.length} / ${max}`;
     }
 
     fields.mini_bio.addEventListener("input", () => updateCounter("mini_bio", 300));
@@ -870,8 +908,7 @@
 
     function validateForm() {
       let valid = true;
-
-      Object.keys(fields).forEach((name) => setError(name, ""));
+      Object.keys(fields).forEach((fieldName) => setError(fieldName, ""));
 
       if (!fields.full_name.value.trim()) {
         setError("full_name", "Please enter your full name.");
@@ -900,10 +937,7 @@
       }
 
       if (!fields.technology_interest.value.trim()) {
-        setError(
-          "technology_interest",
-          "Please share something that has caught your attention."
-        );
+        setError("technology_interest", "Please share what has caught your attention.");
         valid = false;
       }
 
@@ -912,7 +946,6 @@
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
-
       if (isSubmitting || !validateForm()) return;
 
       isSubmitting = true;
@@ -934,7 +967,7 @@
         updateCounter("mini_bio", 300);
         updateCounter("technology_interest", 200);
         successMessage.classList.add("show");
-      } catch (error) {
+      } catch {
         errorMessage.classList.add("show");
       } finally {
         isSubmitting = false;
